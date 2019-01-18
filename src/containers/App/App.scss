@@ -1,0 +1,48 @@
+@import "./Reset.scss";
+@import "./fonts.scss";
+
+* {
+  box-sizing: border-box;
+}
+body {
+  background: #f3f7fa;
+  font-family: "GothamProRegular", sans-serif;
+  font-size: 16px;
+}
+
+a,
+button {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.btn {
+  display: inline-block;
+  font-family: "GothamProLight", sans-serif;
+  background: none;
+  font-size: 14px;
+  line-height: 1;
+  padding: 10px 20px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.btn-blue {
+  background: #012a79;
+  border: 1px solid #012a79;
+  color: #fff;
+  &:hover {
+    background: #fff;
+    color: #012a79;
+    font-family: "GothamProLight", sans-serif;
+  }
+}
