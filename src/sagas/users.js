@@ -1,40 +1,64 @@
 import { takeLatest, call, put } from "redux-saga/effects";
-import { login } from "../actions/users";
+import { signIn, signUp, setAuthState } from "../actions";
 import * as API from "../api/";
-import setAuthToken from "../utils/setAuthToken";
 import { history } from "../index";
 
 //WORKERS
-function* signInWorker({ payload: { data, resolve, reject } }) {
-  // const response = yield call(API.signInApi, data);
-  const response = null;
-  if (response.status && response.status === 200) {
+function* signInWorker({
+  payload: {
+    data: { email, password },
+    resolve,
+    reject
+  }
+}) {
+  const response = yield call(API.signInApi, email);
+  if (response[0] && response[0].password === password) {
     resolve();
-    let { token } = response.data;
-    //set token to localStorage
-    localStorage.token = token;
-    //set token to Auth header
-    setAuthToken(token);
-    //add user info
+    //set user to localStorage
+    localStorage.user = JSON.stringify(response);
+    //set user info
+    yield put(setAuthState(response));
+    //push to main page
     history.push("/");
-    // const res = yield call(API.getUserInfoAPI);
-    // if (res.status === 200) {
-    //     yield put(setUser(res.data.user));
-    // }
+  } else {
+    if (!response[0]) {
+      reject({ email: "User with this Email is not exist" });
+    } else if (response[0].password !== password) {
+      reject({ password: "Wrong password" });
+    }
+  }
+}
+
+function* signUnWorker({ payload: { data, resolve, reject } }) {
+  const response = yield call(API.signUnApi, data);
+  if (response.name) {
+    resolve();
+    history.push("/authentication");
   } else {
     reject(response);
   }
 }
 
+export function* fetchUserAuth() {
+  //Check user token
+  let user = localStorage.user ? JSON.parse(localStorage.user) : null;
+  if (user) {
+    //set auth state
+    yield put(setAuthState(user));
+  }
+}
+
 export function* logOutWorker() {
-  // yield setAuthToken();
-  // yield put(setUser({}));
-  // //Redirect to login
-  // localStorage.clear();
-  // history.push('/');
+  yield put(setAuthState({}));
+  localStorage.clear();
+  //Redirect to login
+  history.push("/authentication");
 }
 
 // WATCHERS
 export function* loginUserWatcher() {
-  yield takeLatest(login, signInWorker);
+  yield takeLatest(signIn, signInWorker);
+}
+export function* signUnWatcher() {
+  yield takeLatest(signUp, signUnWorker);
 }

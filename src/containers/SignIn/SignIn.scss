@@ -22,7 +22,18 @@
     }
   }
 }
+.title-auth {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 15px;
+  color: #012a79;
+}
 .footer-form {
   display: flex;
   justify-content: center;
+}
+.help-link {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
 }

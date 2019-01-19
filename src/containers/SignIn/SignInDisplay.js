@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import logo from "./media/logo.svg";
 import { Field, reduxForm, SubmissionError } from "redux-form";
-import { required } from "../../helpers/validate";
+import { Link } from "react-router-dom";
+import { required, email } from "../../helpers/validate";
 import { renderField } from "../../helpers/FormField/formFields";
-import "./Authentication.scss";
+import "./SignIn.scss";
 
-export class AuthenticationDisplay extends Component {
+export class SignInDisplay extends Component {
   SubmitForm = data => {
-    const { login } = this.props;
+    const { signIn } = this.props;
     return new Promise((resolve, reject) => {
-      login({
+      signIn({
         data: data,
         resolve,
         reject
@@ -25,25 +25,21 @@ export class AuthenticationDisplay extends Component {
     return (
       <div className="authentication">
         <div>
-          <div className="logo">
-            <img src={logo} alt="logo" />
-          </div>
+          <div className="title-auth">Login</div>
           <form onSubmit={handleSubmit(this.SubmitForm)} className="form_auth">
             <Field
-              name="name"
+              name="email"
               type="text"
-              className="phone-input"
               component={renderField}
-              label="Имя пользователя"
+              label="Email"
               autoComplete="off"
-              validate={[required]}
+              validate={[required, email]}
             />
             <Field
               name="password"
               type="password"
-              className="phone-input"
               component={renderField}
-              label="Пароль"
+              label="Password"
               autoComplete="off"
               validate={[required]}
             />
@@ -53,10 +49,13 @@ export class AuthenticationDisplay extends Component {
                 disabled={submitting || pristine}
                 className="btn btn-blue"
               >
-                Войти
+                Login
               </button>
             </div>
           </form>
+          <div className={`help-link`}>
+            <Link to={`/authentication/sign-up`}>Registration</Link>
+          </div>
           {error ? <div className="form-error">{error}</div> : null}
         </div>
       </div>
@@ -64,6 +63,6 @@ export class AuthenticationDisplay extends Component {
   }
 }
 
-AuthenticationDisplay = reduxForm({
-  form: "AuthenticationDisplay"
-})(AuthenticationDisplay);
+SignInDisplay = reduxForm({
+  form: "SignInDisplay"
+})(SignInDisplay);

@@ -1,1 +1,1 @@
-export { loginUserWatcher } from "./users";
+export { loginUserWatcher, signUnWatcher, fetchUserAuth } from "./users";

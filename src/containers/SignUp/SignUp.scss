@@ -1,0 +1,39 @@
+.authentication {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > div {
+    max-width: 575px;
+    width: 100%;
+    background: #fff;
+    padding: 40px 100px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+  }
+  .logo {
+    margin-bottom: 50px;
+  }
+  .footer-form {
+    margin-top: 40px;
+    button {
+      width: 160px;
+    }
+  }
+}
+.title-auth {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 15px;
+  color: #012a79;
+}
+.footer-form {
+  display: flex;
+  justify-content: center;
+}
+.help-link {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}

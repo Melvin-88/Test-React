@@ -1,10 +1,14 @@
 import ApiCreator from "./api";
-const api = ApiCreator();
+import { BASE_URL } from "../config";
+const api = ApiCreator(BASE_URL);
 
-export const signInApi = async data => {
-  try {
-    return await api.post("api/user/login", data);
-  } catch (error) {
-    return error.response.data;
-  }
-};
+export const signInApi = email => api.get(`user?email=${email}`);
+
+export const signUnApi = data =>
+  api.post("user", {
+    body: JSON.stringify(data),
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    }
+  });

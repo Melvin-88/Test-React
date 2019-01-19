@@ -1,12 +1,12 @@
 @import "./Reset.scss";
-@import "./fonts.scss";
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
 
 * {
   box-sizing: border-box;
 }
 body {
+  font-family: "Open Sans", sans-serif;
   background: #f3f7fa;
-  font-family: "GothamProRegular", sans-serif;
   font-size: 16px;
 }
 
@@ -17,11 +17,15 @@ button {
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  color: #012a79;
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+  }
 }
 
 .btn {
   display: inline-block;
-  font-family: "GothamProLight", sans-serif;
   background: none;
   font-size: 14px;
   line-height: 1;
@@ -30,6 +34,12 @@ button {
   -moz-border-radius: 15px;
   border-radius: 15px;
   text-decoration: none;
+  &:disabled {
+    opacity: 0.8;
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
   &:hover {
     text-decoration: none;
     cursor: pointer;
@@ -40,9 +50,14 @@ button {
   background: #012a79;
   border: 1px solid #012a79;
   color: #fff;
+  &:disabled {
+    &:hover {
+      background: #012a79;
+      color: #fff;
+    }
+  }
   &:hover {
     background: #fff;
     color: #012a79;
-    font-family: "GothamProLight", sans-serif;
   }
 }

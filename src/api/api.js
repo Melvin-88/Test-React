@@ -1,15 +1,15 @@
-import axios from "axios";
-
-export default () => {
-  const fetchCreator = method => (url, options) => {
-    return axios[method](`/${url}`, options).then(data => data);
-  };
+export default baseUrl => {
+  const fetchCreator = method => (url, options) =>
+    fetch(`http://${baseUrl}/${url}`, {
+      method,
+      ...options
+    }).then(data => data.json());
 
   return {
-    get: fetchCreator("get"),
-    post: fetchCreator("post"),
-    patch: fetchCreator("patch"),
-    delete: fetchCreator("delete"),
-    put: fetchCreator("put")
+    get: fetchCreator("GET"),
+    post: fetchCreator("POST"),
+    patch: fetchCreator("PATCH"),
+    delete: fetchCreator("DELETE"),
+    put: fetchCreator("PUT")
   };
 };
