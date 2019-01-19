@@ -1,95 +1,106 @@
-.block-input {
-  display: block;
-  width: 100%;
-  margin-bottom: 30px;
-  position: relative;
-  &.error_border,
-  &.value.error_border {
+.block-input,
+.block-textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 30px;
     position: relative;
-    ::-webkit-input-placeholder {
-      color: #d0021b;
-    }
-    ::-moz-placeholder {
-      color: #d0021b;
-    }
-    :-ms-input-placeholder {
-      color: #d0021b;
-    }
-    :-moz-placeholder {
-      color: #d0021b;
+    textarea {
+        width: 100%;
+        color: #000000;
+        padding: 5px 15px;
+        font-size: 14px;
+        resize: none;
+        border-bottom: solid 1px #012a79;
     }
     input {
-      border-bottom: 1px solid #d0021b !important;
+        display: block;
+        height: 30px;
+        line-height: 30px;
+        width: 100%;
+        border-bottom: solid 1px #012a79;
+        padding: 0 15px;
+        font-size: 14px;
+        color: #000000;
     }
-    span.error {
-      color: #d0021b;
-      position: absolute;
-      bottom: -15px;
-      right: 0px;
-      font-size: 11px;
-      font-weight: 500;
-      line-height: 13px;
+    &.error_border,
+    &.value.error_border {
+        position: relative;
+        ::-webkit-input-placeholder {
+            color: #d0021b;
+        }
+        ::-moz-placeholder {
+            color: #d0021b;
+        }
+        :-ms-input-placeholder {
+            color: #d0021b;
+        }
+        :-moz-placeholder {
+            color: #d0021b;
+        }
+        input,
+        textarea {
+            border-color: #d0021b !important;
+        }
+        span.error {
+            color: #d0021b;
+            position: absolute;
+            bottom: -15px;
+            right: 0px;
+            font-size: 11px;
+            font-weight: 500;
+            line-height: 13px;
+        }
+        .title {
+            color: #d0021b;
+        }
     }
     .title {
-      color: #d0021b;
+        position: absolute;
+        height: 30px;
+        line-height: 30px;
+        left: 15px;
+        top: 0;
+        transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+        z-index: 1;
+        transform: scale(1) translate(0px, 0px);
+        transform-origin: left top 0px;
+        pointer-events: none;
+        user-select: none;
+        font-family: 'GothamProItalic', sans-serif;
+        font-size: 14px;
+        text-transform: capitalize;
+        color: #5e5e5e;
+        opacity: 0.7;
+        font-weight: 500;
     }
-  }
-  .title {
-    position: absolute;
-    height: 30px;
-    line-height: 30px;
-    left: 15px;
-    top: 0;
-    transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
-    z-index: 1;
-    transform: scale(1) translate(0px, 0px);
-    transform-origin: left top 0px;
-    pointer-events: none;
-    user-select: none;
-    font-family: "GothamProItalic", sans-serif;
-    font-size: 14px;
-    text-transform: capitalize;
-    color: #5e5e5e;
-    opacity: 0.7;
-    font-weight: 500;
-  }
-  input {
-    display: block;
-    height: 30px;
-    line-height: 30px;
-    width: 100%;
-    border-bottom: solid 1px #012a79;
-    padding: 0 15px;
-    font-family: "Montserrat", sans-serif;
-    font-size: 14px;
-    color: #000000;
-  }
-  &.value {
-    input {
-      border-bottom: 1px solid #012a79;
-      & + .title {
-        transform: scale(0.75) translate(-20px, -25px);
-        color: #000021;
-        font-size: 17px;
-        font-weight: 400;
-      }
+    &.value {
+        input,
+        textarea {
+            border-bottom: 1px solid #012a79;
+            & + .title {
+                transform: scale(0.75) translate(-20px, -25px);
+                color: #000021;
+                font-size: 17px;
+                font-weight: 400;
+            }
+        }
     }
-  }
-  input:focus {
-    border-bottom: 1px solid #012a79;
-    & + .title {
-      transform: scale(0.75) translate(-20px, -25px);
-      color: #000021;
-      font-size: 17px;
-      font-weight: 400;
-      opacity: 1;
+    input:focus,
+    textarea:focus {
+        border-bottom: 1px solid #012a79;
+        & + .title {
+            transform: scale(0.75) translate(-20px, -25px);
+            color: #000021;
+            font-size: 17px;
+            font-weight: 400;
+            opacity: 1;
+        }
     }
-  }
 }
 .block-items {
-  .select_label_active {
-    transform: scale(0.75) translate(-20px, -25px);
-    color: #000021;
-    font-weight: 400;
-  }
+    .select_label_active {
+        transform: scale(0.75) translate(-20px, -25px);
+        color: #000021;
+        font-weight: 400;
+    }
 }

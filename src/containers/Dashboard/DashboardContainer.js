@@ -1,14 +1,16 @@
-import { connect } from "react-redux";
-import { DashboardDisplay } from "./DashboardDisplay";
-import {} from "./../../actions/users";
+import {connect} from 'react-redux';
+import {DashboardDisplay} from './DashboardDisplay';
+import {addNewEntries} from './../../actions';
 
 const mapStateToProps = state => {
-  return {};
+    return {};
 };
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+    addNewEntries,
+};
 
 export const DashboardContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps,
 )(DashboardDisplay);

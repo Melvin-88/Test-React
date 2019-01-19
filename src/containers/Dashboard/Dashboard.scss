@@ -1,0 +1,18 @@
+.entries-box {
+    max-width: 1100px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    &__header {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.dialog-main {
+    width: 500px;
+    input,
+    textarea {
+        border: solid 1px #012a79;
+        border-radius: 3px;
+    }
+}
