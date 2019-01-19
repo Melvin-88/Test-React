@@ -1,5 +1,5 @@
 import { takeLatest, call, put } from "redux-saga/effects";
-import { signIn, signUp, setAuthState } from "../actions";
+import { signIn, signUp, setAuthState, logOut } from "../actions";
 import * as API from "../api/";
 import { history } from "../index";
 
@@ -17,7 +17,7 @@ function* signInWorker({
     //set user to localStorage
     localStorage.user = JSON.stringify(response);
     //set user info
-    yield put(setAuthState(response));
+    yield put(setAuthState(response[0]));
     //push to main page
     history.push("/");
   } else {
@@ -44,7 +44,7 @@ export function* fetchUserAuth() {
   let user = localStorage.user ? JSON.parse(localStorage.user) : null;
   if (user) {
     //set auth state
-    yield put(setAuthState(user));
+    yield put(setAuthState(user[0]));
   }
 }
 
@@ -61,4 +61,7 @@ export function* loginUserWatcher() {
 }
 export function* signUnWatcher() {
   yield takeLatest(signUp, signUnWorker);
+}
+export function* logOutWatcher() {
+  yield takeLatest(logOut, logOutWorker);
 }

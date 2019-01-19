@@ -1,10 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Header.scss";
 
-class HeaderDisplayComponent extends Component {
-  render() {
-    return <header>HeaderDisplayComponent</header>;
-  }
-}
-
-export const HeaderDisplay = HeaderDisplayComponent;
+export const HeaderDisplay = ({ logOut, user }) => (
+  <header>
+    {user && user.name ? <span>{user.name}</span> : null}
+    <button
+      onClick={() => {
+        logOut();
+      }}
+      className="btn btn-blue"
+    >
+      Logout
+    </button>
+  </header>
+);

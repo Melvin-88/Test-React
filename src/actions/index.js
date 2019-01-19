@@ -1,1 +1,1 @@
-export { signIn, setUser, signUp, setAuthState } from "./users";
+export { signIn, signUp, setAuthState, logOut } from "./users";
