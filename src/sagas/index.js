@@ -1,6 +1,8 @@
 export {
-  loginUserWatcher,
-  signUnWatcher,
-  fetchUserAuth,
-  logOutWatcher
-} from "./users";
+    loginUserWatcher,
+    signUnWatcher,
+    fetchUserAuth,
+    logOutWatcher,
+} from './users';
+
+export {addNewEntriesWatcher} from './entries';
