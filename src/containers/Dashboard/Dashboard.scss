@@ -6,6 +6,55 @@
     &__header {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        .search {
+            input {
+                border: solid 1px #012a79;
+                border-radius: 3px;
+                width: 250px;
+                height: 35px;
+                line-height: 36px;
+                padding: 0 10px;
+            }
+            button {
+                margin-left: 10px;
+            }
+        }
+    }
+    &__body {
+        table {
+            margin: 20px 0;
+            width: 100%;
+            color: #2b2e38;
+            th,
+            td {
+                word-break: break-word;
+            }
+            thead {
+                tr {
+                    border-bottom: 1px solid #ccc;
+                    th {
+                        padding: 5px 0;
+                        &:first-of-type {
+                            width: 35%;
+                        }
+                    }
+                }
+            }
+            tbody {
+                tr {
+                    td {
+                        padding: 5px 0;
+                        &:first-of-type {
+                            width: 35%;
+                        }
+                    }
+                    &:nth-child(even) {
+                        background: #eee;
+                    }
+                }
+            }
+        }
     }
 }
 .dialog-main {

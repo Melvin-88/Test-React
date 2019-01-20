@@ -2,7 +2,7 @@ import ApiCreator from './api';
 import {BASE_URL} from '../config';
 const api = ApiCreator(BASE_URL);
 
-export const getEntriesApi = email => api.get(`user?email=${email}`);
+export const getListEntriesApi = () => api.get(`entries`);
 
 export const addNewEntriesApi = data =>
     api.post('entries', {

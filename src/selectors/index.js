@@ -1,1 +1,2 @@
-export { userInfoSelector } from "./userSelectors";
+export {userInfoSelector} from './userSelectors';
+export {entriesListSelector} from './entriesSelectors';

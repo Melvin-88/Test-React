@@ -5,4 +5,4 @@ export {
     logOutWatcher,
 } from './users';
 
-export {addNewEntriesWatcher} from './entries';
+export {addNewEntriesWatcher, getListEntriesWatcher} from './entries';
