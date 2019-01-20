@@ -22,7 +22,7 @@ function* addNewEntriesWorker({payload: {data, resolve, reject}}) {
 }
 function* getListEntriesWorker() {
     const response = yield call(API.getListEntriesApi);
-    if (response && response.length) {
+    if (response) {
         //set user info
         yield put(saveListEntries(response));
     }

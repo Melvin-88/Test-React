@@ -10,7 +10,7 @@ export class SignUpDisplay extends Component {
         const {signUp} = this.props;
         let objData = {
             name: data.name,
-            password: data.name,
+            password: data.password,
             email: data.email,
         };
         return new Promise((resolve, reject) => {

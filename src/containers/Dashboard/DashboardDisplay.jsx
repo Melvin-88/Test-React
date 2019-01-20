@@ -62,7 +62,7 @@ export class DashboardDisplay extends Component {
 
     find = search => {
         let {entries} = this.state;
-        return entries.filter(value => value.name.indexOf(search) != -1);
+        return entries.filter(value => value.name.indexOf(search) !== -1);
     };
 
     search = () => {
@@ -119,7 +119,7 @@ export class DashboardDisplay extends Component {
                     </div>
                     <div className="entries-box__body">
                         {!entries ? (
-                            <div>Loading...</div>
+                            <div className="message-block">Loading...</div>
                         ) : entries && entries.length ? (
                             <table>
                                 <thead>
@@ -138,7 +138,7 @@ export class DashboardDisplay extends Component {
                                 </tbody>
                             </table>
                         ) : (
-                            <div>No Items</div>
+                            <div className="message-block">No Items</div>
                         )}
                     </div>
                 </div>

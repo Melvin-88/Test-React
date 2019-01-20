@@ -1,6 +1,6 @@
-import { createAction } from "redux-actions";
+import {createAction} from 'redux-actions';
 
-export const signIn = createAction("signIn");
-export const signUp = createAction("signUp");
-export const logOut = createAction("logOut");
-export const setAuthState = createAction("setAuthState");
+export const signIn = createAction('signIn');
+export const signUp = createAction('signUp');
+export const logOut = createAction('logOut');
+export const setAuthState = createAction('setAuthState');
